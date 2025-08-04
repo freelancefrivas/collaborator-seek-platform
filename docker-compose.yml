@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: sideproject
+      POSTGRES_USER: side_user
+      POSTGRES_DB: side_project
+  app:
+    build: .
+    ports:
+      - 13000:3000
+    depends_on:
+      - db
